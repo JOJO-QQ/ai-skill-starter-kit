@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI実用スキル安全スターターキット</title>
+  <style>
+    :root {
+      --bg: #fbfaf6;
+      --paper: #ffffff;
+      --ink: #172026;
+      --text: #334047;
+      --muted: #66727a;
+      --line: #d9ded8;
+      --green: #0f766e;
+      --green-dark: #0a4f49;
+      --green-soft: #e3f4ef;
+      --yellow: #f6c453;
+      --red-soft: #fff0ea;
+      --shadow: 0 18px 50px rgba(23, 32, 38, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      min-width: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      width: 100%;
+      max-width: 100vw;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    header {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 36px 0 54px;
+      background:
+        linear-gradient(rgba(251, 250, 246, 0.82), rgba(251, 250, 246, 0.95)),
+        radial-gradient(circle at 82% 18%, rgba(15, 118, 110, 0.18), transparent 30%),
+        radial-gradient(circle at 12% 84%, rgba(246, 196, 83, 0.26), transparent 32%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      border: 1px solid #b9ded7;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.13;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0 0 26px;
+      max-width: 660px;
+      color: var(--text);
+      font-size: clamp(18px, 2.2vw, 21px);
+      font-weight: 500;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 26px 0 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      border: 1px solid var(--green);
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.2);
+      max-width: 100%;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--green-dark);
+      border-color: #a6d4cd;
+      box-shadow: none;
+    }
+
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .trust span {
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .phone {
+      width: min(360px, 100%);
+      aspect-ratio: 9 / 16;
+      border-radius: 32px;
+      background: #111820;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .screen {
+      height: 100%;
+      border-radius: 24px;
+      background: #f8faf7;
+      overflow: hidden;
+      border: 1px solid #26323a;
+    }
+
+    .screen-head {
+      padding: 18px;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .screen-head strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .screen-body {
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-item {
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid #e2e7df;
+    }
+
+    .mini-item b {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+
+    .mini-item small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    main { padding: 58px 0 72px; }
+
+    section { margin-top: 58px; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.36;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 14px; }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    summary {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-break: strict;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(23, 32, 38, 0.05);
+      max-width: 100%;
+    }
+
+    .pain { background: var(--red-soft); border-color: #ffd1c4; }
+    .safe { background: var(--green-soft); border-color: #b7ded7; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .skill {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      max-width: 100%;
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    code {
+      display: inline-block;
+      margin-bottom: 6px;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: #edf1ed;
+      color: #263138;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 100%;
+    }
+
+    .step b {
+      display: block;
+      color: var(--green-dark);
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 30px;
+      border-radius: 8px;
+      background: var(--green-dark);
+      color: #fff;
+    }
+
+    .cta h2 { color: #fff; }
+    .cta p { color: rgba(255, 255, 255, 0.82); }
+
+    .form {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      min-height: 50px;
+      margin: 6px 0 10px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .submit {
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--yellow);
+      color: #352203;
+      font: inherit;
+      font-weight: 900;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta .small { color: rgba(255, 255, 255, 0.72); }
+
+    details {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    details + details { margin-top: 10px; }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sticky-cta {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      display: none;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.94);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .sticky-cta a {
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .split,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      header { min-height: auto; }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        position: relative;
+        max-width: 100vw;
+      }
+
+      .wrap {
+        width: calc(100% - 28px);
+        max-width: calc(100vw - 28px);
+      }
+
+      h1 {
+        font-size: 30px;
+        line-height: 1.22;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      summary {
+        word-break: break-all;
+        line-break: anywhere;
+      }
+
+      .lead {
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      .skills,
+      .grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row .button {
+        width: 100%;
+      }
+
+      header,
+      main,
+      section,
+      footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .phone {
+        width: min(278px, 88%);
+        transform: rotate(0deg);
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">30〜60代のAI初心者向け / 無料配布予定</span>
+        <h1>AIで失敗する前に読む<br>7つの安全チェック。</h1>
+        <p class="lead">ChatGPT、Claude、Codexを使いたい。でも、何を信じればいいか分からない。そんな人のための無料スターターキットです。</p>
+        <div class="button-row">
+          <a class="button" href="#signup">無料で受け取る</a>
+          <a class="button secondary" href="#inside">7つの中身を見る</a>
+        </div>
+      <div class="trust">
+        <span>APIキー不要</span>
+        <span>危険な自動化なし</span>
+        <span>スマホで読める</span>
+        <span>iPhoneでも試せる</span>
+      </div>
+      </div>
+
+      <div class="hero-visual" aria-label="AI安全スターターキットのプレビュー">
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-head">
+              <strong>AI実用スキル<br>安全スターターキット</strong>
+            </div>
+            <div class="screen-body">
+              <div class="mini-item">
+                <b>情報の裏取り</b>
+                <small>AIニュースや収益話をそのまま信じない</small>
+              </div>
+              <div class="mini-item">
+                <b>作業環境の整理</b>
+                <small>Chatで十分か、Skill化すべきか判断</small>
+              </div>
+              <div class="mini-item">
+                <b>自動化の安全確認</b>
+                <small>規約、秘密情報、課金リスクを先に見る</small>
+              </div>
+              <div class="mini-item">
+                <b>発信の下書き</b>
+                <small>note、Instagram、画像生成を安全に試す</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="split">
+      <div class="card pain">
+        <h2>AI初心者がつまずくところ。</h2>
+        <ul>
+          <li>「神ツール」を信じていいか分からない。</li>
+          <li>APIキーや課金が怖い。</li>
+          <li>毎回、長いプロンプトを貼っている。</li>
+          <li>作ったものを説明できない。</li>
+        </ul>
+      </div>
+      <div class="card safe">
+        <h2>このキットは、AIに頼む前の確認表です。</h2>
+        <p>「AIで稼げる」ではなく、「AIで失敗しにくくする」ための無料パックです。安全に試す、整理する、確認する。そのための7つの手順を入れています。</p>
+      </div>
+    </section>
+
+    <section id="inside">
+      <h2>無料で受け取れる7つのスキル</h2>
+      <p class="section-lead">個人情報、ローカルパス、危険な自動化手順を抜いた、一般配布用の安全版です。</p>
+      <div class="skills">
+        <article class="skill">
+          <span class="num">1</span>
+          <div>
+            <code>info-check-lite</code>
+            <h3>怪しいAI情報を確認する</h3>
+            <p>SNSの「最新」「稼げる」「神ツール」を、実用部分と煽りに分けます。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">2</span>
+          <div>
+            <code>ai-workspace-design-check</code>
+            <h3>AI作業の置き場所を決める</h3>
+            <p>Chat、Memory、Skill、小ツール、自動化のどれで扱うべきか整理します。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">3</span>
+          <div>
+            <code>api-automation-safety-check</code>
+            <h3>自動化する前に止まる</h3>
+            <p>スクレイピング、非公開API、外部連携の前に規約と秘密情報を確認します。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">4</span>
+          <div>
+            <code>market-research-starter</code>
+            <h3>小さく商品を試す</h3>
+            <p>誰のどんな面倒を減らすのかを整理し、小さな無料配布やLPで検証します。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">5</span>
+          <div>
+            <code>note-structure-safe</code>
+            <h3>note記事の構成を作る</h3>
+            <p>実体験、失敗、チェックリストを、初心者向けの記事に整理します。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">6</span>
+          <div>
+            <code>instagram-content-safe</code>
+            <h3>投稿の下書きを作る</h3>
+            <p>実体験やノウハウを、プライバシーに配慮したInstagram投稿にします。</p>
+          </div>
+        </article>
+        <article class="skill">
+          <span class="num">7</span>
+          <div>
+            <code>ai-image-brief-safe</code>
+            <h3>画像生成の指示を作る</h3>
+            <p>サムネや投稿画像を作る前に、目的、構図、文字入れ、安全確認を整理します。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>受け取ったあと、やることは4つだけ。</h2>
+      <div class="steps">
+        <article class="step">
+          <b>1</b>
+          <h3>スキルを選ぶ</h3>
+          <p>今困っていることに近いものを1つ選びます。</p>
+        </article>
+        <article class="step">
+          <b>2</b>
+          <h3>AIに貼る</h3>
+          <p>ChatGPT、Claude、Codexなどに本文を貼ります。</p>
+        </article>
+        <article class="step">
+          <b>3</b>
+          <h3>材料を入れる</h3>
+          <p>記事、投稿案、調べたい情報、やりたい作業を渡します。</p>
+        </article>
+        <article class="step">
+          <b>4</b>
+          <h3>確認して使う</h3>
+          <p>出力をそのまま信じず、チェックしてから使います。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="card safe">
+        <h2>スマホでも使えます。</h2>
+        <p>無料パックはMarkdown形式のテキストなので、iPhoneやAndroidでも読めます。ChatGPTやClaudeのスマホアプリに貼れば、まずはその場で試せます。</p>
+        <ul>
+          <li>SNS投稿の下書き</li>
+          <li>AI情報の裏取り</li>
+          <li>note記事の構成相談</li>
+          <li>画像生成の指示作り</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>PCの方が向いている作業もあります。</h2>
+        <p>Codex、Claude Code、ローカルファイル編集、LP制作、自動化、安全な配布ファイル作成はPCの方が扱いやすいです。</p>
+        <ul>
+          <li>スキルファイルの整理</li>
+          <li>HTMLページの作成と確認</li>
+          <li>APIキーや環境変数の設定</li>
+          <li>自動化や外部連携の検証</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="card">
+        <h2>このキットで目指すこと</h2>
+        <ul>
+          <li>AIに頼む前に、危ないところへ気づける。</li>
+          <li>よく使う作業を、再利用できる手順にする。</li>
+          <li>作ったAI作業を、人に説明できる状態に近づける。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>約束しないこと</h2>
+        <ul>
+          <li>必ず稼げるとは言いません。</li>
+          <li>自動化すれば全部解決とは言いません。</li>
+          <li>規約違反になる使い方は扱いません。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="signup" class="cta">
+      <div>
+        <h2>無料版から試してください。</h2>
+        <p>公開時は、ここにメール登録フォームまたはLINE友だち追加リンクを接続します。今は見た目と導線を確認するためのデモです。</p>
+        <p class="small">見る指標：ボタンのクリック、登録率、返信、どのスキルに興味があるか。</p>
+      </div>
+      <div class="form">
+        <h3>無料で受け取る</h3>
+        <p class="small">登録後にダウンロードURLを案内する想定です。</p>
+        <input type="email" placeholder="メールアドレス（デモ）" aria-label="メールアドレス">
+        <button class="submit" type="button">無料パックを受け取る</button>
+        <p class="small">※送信機能はまだ接続していません。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>よくある不安</h2>
+      <details>
+        <summary>プログラミングができなくても使えますか？</summary>
+        <p>はい。まずはスキル本文をAIに貼って、質問に答えるだけで使える形にしています。</p>
+      </details>
+      <details>
+        <summary>APIキーやログイン情報は必要ですか？</summary>
+        <p>無料パックを読むだけなら不要です。秘密情報をAIに貼らないことも、キット内で確認します。</p>
+      </details>
+      <details>
+        <summary>何かを自動投稿したり、勝手に課金されたりしますか？</summary>
+        <p>しません。公開・投稿・課金・削除・外部送信は、人間の確認を前提にする方針です。</p>
+      </details>
+      <details>
+        <summary>iPhoneだけでも使えますか？</summary>
+        <p>読む、AIに貼る、SNS投稿や記事構成を作るところまでは使えます。CodexやClaude Codeでファイルを作る作業はPCの方が向いています。</p>
+      </details>
+    </section>
+  </main>
+
+  <div class="sticky-cta">
+    <a class="button" href="#signup">無料で受け取る</a>
+  </div>
+
+  <footer>
+    <div class="wrap">AI実用スキル安全スターターキット LP下書き。公開前にフォーム、配布ファイル、プライバシーポリシーを接続してください。</div>
+  </footer>
+</body>
+</html>
