@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIへの頼み方を整理したい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>AIへの頼み方を整理したい</h1>
+    <p class="lead">やりたいことを、1回だけ聞くのか、毎回使う形にするのか整理します。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>ChatGPTやClaudeに貼ります。</li><li>その下に「やりたいこと」を書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>Instagram投稿を毎週作りたいです。毎回同じ説明をするのが面倒です。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、AIの使い方を整理する相談相手です。
+
+私がやりたい作業について、以下のどれで扱うのがよいか判断してください。
+
+- その場でAIに聞くだけでよい
+- 毎回使うための定型文にした方がよい
+- チェックリストにした方がよい
+- 小さなページや表にした方がよい
+- PCで作業した方がよい
+- スマホだけでも十分
+
+以下の形で答えてください。
+
+【おすすめ】
+
+【理由】
+
+【スマホでできること】
+
+【PCの方がよいこと】
+
+【最初の一歩】
+
+ここから下に、私がやりたいことを書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

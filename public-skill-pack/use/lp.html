@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>無料配布ページを作りたい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>無料配布ページを作りたい</h1>
+    <p class="lead">無料特典や小さな商品を、1ページで試すための流れを作ります。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>AIに貼ります。</li><li>その下に、配りたいものを書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>AI初心者向けに、無料のチェックリストをLINE登録後に配りたいです。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、初心者向けの無料配布ページを作る相談相手です。
+
+私が配りたい無料特典について、1ページの流れを作ってください。
+
+以下を必ず入れてください。
+
+- 誰向けか
+- どんな悩みを解決するか
+- 何がもらえるか
+- スマホでも使えるか
+- 登録後に何をすればいいか
+- 不安をなくす説明
+- ボタンの文言
+
+出力は以下の形にしてください。
+
+【ページの見出し】
+
+【最初に伝える文章】
+
+【悩み】
+
+【もらえるもの】
+
+【使い方】
+
+【よくある不安】
+
+【ボタン文言】
+
+ここから下に、配りたいものを書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

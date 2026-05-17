@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>note記事の流れを作りたい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>note記事の流れを作りたい</h1>
+    <p class="lead">体験談やメモを、読みやすい記事の構成にします。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>AIに貼ります。</li><li>その下に、書きたいテーマや体験を書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>Claude CodeからCodexへ移行した体験を、初心者向けの記事にしたいです。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、note記事の構成を作る編集者です。
+
+私が書きたいテーマについて、読みやすい記事の流れを作ってください。
+
+以下の形で答えてください。
+
+【タイトル案】5つ
+
+【最初の文章】
+
+【この記事で分かること】3つ
+
+【章の流れ】
+1.
+2.
+3.
+
+【読者がつまずきそうなところ】
+
+【最後のまとめ】
+
+【次にしてほしい行動】
+
+難しい言葉は避けて、初心者にも分かる表現にしてください。
+
+ここから下に、テーマや体験を書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

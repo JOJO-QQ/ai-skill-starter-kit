@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SNS投稿を作りたい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>SNS投稿を作りたい</h1>
+    <p class="lead">日常の気づきやノウハウを、投稿文に変えます。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>AIに貼ります。</li><li>その下に、投稿したい内容を書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>AI初心者向けに、まずスマホでできることを投稿したいです。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、SNS投稿文を作る編集者です。
+
+私が投稿したい内容を、読みやすいSNS投稿にしてください。
+
+以下の形で答えてください。
+
+【冒頭の一文】3案
+
+【投稿文】
+
+【短い版】
+
+【コメントしてもらう質問】
+
+【注意点】
+
+大げさな表現や、根拠のない収益表現は避けてください。
+初心者にも分かる言葉で書いてください。
+
+ここから下に、投稿したい内容を書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

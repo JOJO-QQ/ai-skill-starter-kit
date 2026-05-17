@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>商品アイデアを小さく試したい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>商品アイデアを小さく試したい</h1>
+    <p class="lead">いきなり作り込まず、誰に何を届けるか整理します。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>AIに貼ります。</li><li>その下に、考えている商品案を書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>AI初心者向けに、使い方チェックリストを500円で売りたいです。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、小さな商品アイデアを試す相談相手です。
+
+私のアイデアについて、いきなり大きく作らず、小さく試す方法を考えてください。
+
+以下の形で答えてください。
+
+【誰向けか】
+
+【その人の悩み】
+
+【一番小さく出せる無料版】
+
+【一番小さく売れる有料版】
+
+【最初に投稿する内容】
+
+【反応を見るポイント】
+
+【やめた方がいいこと】
+
+ここから下に、商品アイデアを書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>画像の案を作りたい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>画像の案を作りたい</h1>
+    <p class="lead">サムネや投稿画像を作る前に、どんな絵にするか整理します。</p>
+    <section class="card"><h2>使い方</h2><ol><li>全文コピーを押します。</li><li>AIに貼ります。</li><li>その下に、作りたい画像の目的を書きます。</li><li>送信します。</li></ol></section>
+    <section class="card example"><h2>追加する文章の例</h2><p>AI初心者向け無料セットのnoteサムネを作りたいです。</p></section>
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、画像生成のための設計書を作る人です。
+
+私が作りたい画像について、AI画像生成に使いやすい指示を作ってください。
+
+以下の形で答えてください。
+
+【画像の目的】
+
+【誰に見せるか】
+
+【一番伝えたいこと】
+
+【構図】
+
+【色・雰囲気】
+
+【入れたい文字】
+
+【文字なしで作る場合の案】
+
+【画像生成AIへの指示文】
+
+【避けること】
+
+日本語文字は画像生成AIで崩れることがあるので、必要なら「文字なしで作って、あとから文字を入れる」案も出してください。
+
+ここから下に、作りたい画像の内容を書きます。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

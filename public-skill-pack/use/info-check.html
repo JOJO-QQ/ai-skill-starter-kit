@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI情報が本当か確認したい</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <h1>AI情報が本当か確認したい</h1>
+    <p class="lead">SNSで見たAI情報を、信じていいか確認する文章です。</p>
+
+    <section class="card">
+      <h2>使い方</h2>
+      <ol>
+        <li>下の「全文コピー」を押します。</li>
+        <li>ChatGPTやClaudeアプリを開きます。</li>
+        <li>コピーした文章を貼ります。</li>
+        <li>その下に、確認したい投稿や文章を貼ります。</li>
+        <li>送信します。</li>
+      </ol>
+    </section>
+
+    <section class="card example">
+      <h2>追加する文章の例</h2>
+      <p>以下のAI情報が本当か確認してください。<br>「AIだけで毎月30万円稼げるそうです。」</p>
+    </section>
+
+    <button class="copy" data-copy-target="prompt">全文コピー</button>
+    <pre id="prompt">あなたは、AIやSNS情報の信ぴょう性を確認するチェック係です。
+
+これから私が貼る文章について、以下の形で確認してください。
+
+1. 主張を3〜7個に分ける
+2. 本当か確認が必要な部分を抜き出す
+3. 実用的に使える部分を抜き出す
+4. 怪しい・煽りっぽい部分を分ける
+5. 最後に「信じていい / 条件つき / そのまま信じない方がいい」で判定する
+
+特に、収益額、最新情報、ツール名、料金、法律、規約、フォロワー数、再生数はそのまま信じず、確認が必要な情報として扱ってください。
+
+出力は以下の形にしてください。
+
+【主張の整理】
+- 
+
+【確認が必要な情報】
+- 
+
+【実用的に使える部分】
+- 
+
+【怪しい・煽りっぽい部分】
+- 
+
+【結論】
+信じていい / 条件つき / そのまま信じない方がいい
+
+ここから下に、確認したい文章を貼ります。</pre>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
