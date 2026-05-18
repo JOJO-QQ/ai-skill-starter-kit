@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AI初心者向けに、情報確認・安全チェック・LP作成・SNS投稿づくりをやさしく始める無料スターターキットです。">
+  <meta name="description" content="ChatGPTやClaudeに貼って試せる、AI初心者向けの無料スターターキット。情報確認・安全チェック・SNS投稿・画像案づくりをスマホから始められます。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jojo-qq.github.io/ai-skill-starter-kit/">
   <meta property="og:title" content="無料AIスターターキット">
-  <meta property="og:description" content="ChatGPTやClaudeに貼って使える、AI初心者向けのやさしい無料セットです。">
+  <meta property="og:description" content="無料・クレカ不要。AI初心者がスマホから小さく試せるスターターキットです。">
   <meta property="og:image" content="https://jojo-qq.github.io/ai-skill-starter-kit/assets/papa-profile-og.png">
   <meta property="og:image:secure_url" content="https://jojo-qq.github.io/ai-skill-starter-kit/assets/papa-profile-og.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="無料AIスターターキットのプロフィール画像">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="無料AIスターターキット">
-  <meta name="twitter:description" content="ChatGPTやClaudeに貼って使える、AI初心者向けのやさしい無料セットです。">
+  <meta name="twitter:description" content="無料・クレカ不要。AI初心者がスマホから小さく試せるスターターキットです。">
   <meta name="twitter:image" content="https://jojo-qq.github.io/ai-skill-starter-kit/assets/papa-profile-og.png">
   <title>AI実用スキル安全スターターキット</title>
   <style>
@@ -146,6 +146,25 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.78);
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 760px;
+    }
+
+    .proof-strip span {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
     }
 
     .hero-visual {
@@ -479,7 +498,8 @@
 
       .skills,
       .grid,
-      .steps {
+      .steps,
+      .proof-strip {
         grid-template-columns: 1fr;
       }
 
@@ -514,18 +534,23 @@
   <header>
     <div class="wrap hero">
       <div>
-        <span class="eyebrow">30〜60代のAI初心者向け / 無料配布予定</span>
-        <h1>AIをこれから使う人の<br>やさしい始め方セット。</h1>
-        <p class="lead">ChatGPTやClaudeを使ってみたい。でも、何から始めればいいか分からない。そんな人向けに、スマホでも読める無料セットを作りました。</p>
+        <span class="eyebrow">30〜60代のAI初心者向け / 無料配布中</span>
+        <h1>AIを触りたいけど、<br>何から始めればいいか分からない人へ。</h1>
+        <p class="lead">ChatGPTやClaudeにそのまま貼って試せる、無料のAIスターターキットです。情報確認・安全チェック・SNS投稿・画像案づくりを、スマホから少しずつ始められます。</p>
         <div class="button-row">
-          <a class="button" href="https://lin.ee/PPzQ4hE">LINEで無料受け取り</a>
-          <a class="button secondary" href="#inside">7つの中身を見る</a>
+          <a class="button" href="https://lin.ee/PPzQ4hE">無料で受け取る</a>
+          <a class="button secondary" href="#inside">中身を見る</a>
         </div>
       <div class="trust">
-        <span>むずかしい設定なし</span>
-        <span>まず読むだけでOK</span>
-        <span>スマホで読める</span>
-        <span>iPhoneでも試せる</span>
+        <span>無料</span>
+        <span>クレカ不要</span>
+        <span>スマホOK</span>
+        <span>全文コピーで使える</span>
+      </div>
+      <div class="proof-strip" aria-label="無料キットの特徴">
+        <span>AI歴が浅い人向け</span>
+        <span>危ない使い方を避ける</span>
+        <span>まず1つだけ試せる</span>
       </div>
       </div>
 
@@ -562,30 +587,30 @@
   <main class="wrap">
     <section class="split">
       <div class="card pain">
-        <h2>AIを始めたい人が迷いやすいところ。</h2>
+        <h2>AIを使いたいのに、最初で止まりやすいところ。</h2>
         <ul>
-          <li>どのAIを使えばいいか分からない。</li>
-          <li>ネットのAI情報が本当か分からない。</li>
-          <li>何を入力すればいいか分からない。</li>
-          <li>スマホだけでできることを知りたい。</li>
+          <li>SNSで見たAI情報が本当か判断できない。</li>
+          <li>ChatGPTやClaudeに何を頼めばいいか分からない。</li>
+          <li>個人情報やログイン情報をどこまで入れていいか不安。</li>
+          <li>PCが苦手でも、スマホから試せる入口がほしい。</li>
         </ul>
       </div>
       <div class="card safe">
-        <h2>このキットは、AIに頼む前の確認表です。</h2>
-        <p>「AIで稼げる」ではなく、「まず安心して試す」ための無料セットです。調べる、考える、投稿を作る、画像の案を出す。そういった日常の使い方から始められます。</p>
+        <h2>このキットは、AIに頼む前の小さな練習場です。</h2>
+        <p>「AIで稼げる」と煽るものではありません。まずは、情報を確かめる、投稿文の下書きを作る、画像の案を出す、安全に使えるか確認する。そういった日常の困りごとから試すための無料セットです。</p>
       </div>
     </section>
 
     <section id="inside">
-      <h2>無料で受け取れる7つの使い方</h2>
-      <p class="section-lead">専門用語を知らなくても使えるように、まずは「AIに何を頼めばいいか」が分かる形にしています。</p>
+      <h2>無料で受け取れる7つの入口</h2>
+      <p class="section-lead">やりたいことを開いて、全文コピーして、ChatGPTやClaudeに貼るだけ。難しい設定をする前に、まず1つ試せる形にしています。</p>
       <div class="skills">
         <article class="skill">
           <span class="num">1</span>
           <div>
             <code>info-check-lite</code>
             <h3>AI情報が本当か確認する</h3>
-            <p>SNSで見たAI情報を、そのまま信じていいか確認します。</p>
+            <p>SNSや高額な情報商材のAI情報を、冷静に確認する入口です。</p>
           </div>
         </article>
         <article class="skill">
@@ -593,7 +618,7 @@
           <div>
             <code>ai-workspace-design-check</code>
             <h3>AIへの頼み方を整理する</h3>
-            <p>1回だけ聞くのか、毎回使う形にするのかを分けます。</p>
+            <p>チャットで済むこと、毎回使う形にすることを分けます。</p>
           </div>
         </article>
         <article class="skill">
@@ -601,7 +626,7 @@
           <div>
             <code>api-automation-safety-check</code>
             <h3>危ない使い方を避ける</h3>
-            <p>勝手に投稿する、課金する、個人情報を入れる前に確認します。</p>
+            <p>自動投稿、課金、個人情報、ログイン情報を扱う前に確認します。</p>
           </div>
         </article>
         <article class="skill">
@@ -609,7 +634,7 @@
           <div>
             <code>market-research-starter</code>
             <h3>アイデアを小さく試す</h3>
-            <p>いきなり大きく作らず、無料配布や1ページで反応を見ます。</p>
+            <p>いきなり作り込まず、1ページで反応を見る考え方です。</p>
           </div>
         </article>
         <article class="skill">
@@ -640,27 +665,27 @@
     </section>
 
     <section>
-      <h2>受け取ったあと、やることは4つだけ。</h2>
+        <h2>受け取ったあと、やることは4つだけ。</h2>
       <div class="steps">
         <article class="step">
           <b>1</b>
-          <h3>スキルを選ぶ</h3>
-          <p>今困っていることに近いものを1つ選びます。</p>
+          <h3>やりたいことを開く</h3>
+          <p>情報確認、投稿づくり、安全チェックなどから1つ選びます。</p>
         </article>
         <article class="step">
           <b>2</b>
-          <h3>AIに貼る</h3>
-          <p>ChatGPTやClaudeに文章を貼ります。</p>
+          <h3>全文コピーする</h3>
+          <p>ページ内のボタンを押して、使う文章をコピーします。</p>
         </article>
         <article class="step">
           <b>3</b>
-          <h3>材料を入れる</h3>
-          <p>記事、投稿案、調べたいことを入れます。</p>
+          <h3>AIに貼る</h3>
+          <p>ChatGPTやClaudeに貼って、自分の相談内容を足します。</p>
         </article>
         <article class="step">
           <b>4</b>
           <h3>確認して使う</h3>
-          <p>出てきた答えを確認してから使います。</p>
+          <p>出てきた答えをそのまま信じず、必要なところを確認して使います。</p>
         </article>
       </div>
     </section>
@@ -693,8 +718,9 @@
         <h2>このキットで目指すこと</h2>
         <ul>
           <li>AIに何を頼めばいいか分かる。</li>
-          <li>ネットの情報をそのまま信じにくくなる。</li>
+          <li>ネットのAI情報をそのまま信じにくくなる。</li>
           <li>スマホでも小さく試せる。</li>
+          <li>家族や身近な人の困りごとを、小さなツールにする入口を作る。</li>
         </ul>
       </div>
       <div class="card">
@@ -702,6 +728,7 @@
         <ul>
           <li>必ず稼げるとは言いません。</li>
           <li>自動化すれば全部解決とは言いません。</li>
+          <li>高額なツールや課金を前提にしません。</li>
           <li>規約違反になる使い方は扱いません。</li>
         </ul>
       </div>
@@ -709,14 +736,14 @@
 
     <section id="signup" class="cta">
       <div>
-        <h2>無料版から試してください。</h2>
-        <p>LINE友だち追加後に、ボタンで選べる無料セットのページを案内します。まずはスマホで読んで、気になるものをChatGPTやClaudeに貼って試してください。</p>
-        <p class="small">見る指標：ボタンのクリック、友だち追加数、返信、どのスキルに興味があるか。</p>
+        <h2>まずは無料で、1つだけ試してください。</h2>
+        <p>LINE友だち追加後に、無料セットのページを案内します。まずはスマホで開いて、気になるものを1つだけChatGPTやClaudeに貼って試してください。</p>
+        <p class="small">今後も初心者向けに使いやすいSkillを少しずつ増やしていきます。</p>
       </div>
       <div class="form">
         <h3>LINEで受け取る</h3>
-        <p class="small">友だち追加すると、無料セットのURLを受け取れます。</p>
-        <a class="button" href="https://lin.ee/PPzQ4hE">LINE友だち追加へ進む</a>
+        <p class="small">友だち追加すると、無料セットのURLを受け取れます。クレジットカード登録は不要です。</p>
+        <a class="button" href="https://lin.ee/PPzQ4hE">無料キットを受け取る</a>
         <p class="small">※LINE上のあいさつメッセージで配布URLを案内します。</p>
       </div>
     </section>
@@ -743,11 +770,11 @@
   </main>
 
   <div class="sticky-cta">
-    <a class="button" href="https://lin.ee/PPzQ4hE">LINEで無料受け取り</a>
+    <a class="button" href="https://lin.ee/PPzQ4hE">無料で受け取る</a>
   </div>
 
   <footer>
-    <div class="wrap">AI実用スキル安全スターターキット LP下書き。公開前にフォーム、配布ファイル、プライバシーポリシーを接続してください。</div>
+    <div class="wrap">AI実用スターターキット。AI初心者が安全に小さく試すための無料配布ページです。</div>
   </footer>
 </body>
 </html>
