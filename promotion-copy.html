@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SNS・note投稿文 | AI実用スターターキット</title>
+  <style>
+    :root {
+      --bg: #fbfaf6;
+      --paper: #fff;
+      --ink: #172026;
+      --text: #334047;
+      --muted: #66727a;
+      --line: #d9ded8;
+      --green: #0f766e;
+      --green-dark: #0a4f49;
+      --green-soft: #e3f4ef;
+      --yellow-soft: #fff5d8;
+      --shadow: 0 12px 32px rgba(23, 32, 38, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+    }
+
+    .wrap {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 46px 0 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(25px, 4vw, 36px);
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 14px; }
+
+    .lead {
+      max-width: 760px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .meta span {
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    main { padding: 36px 0 72px; }
+
+    section { margin-top: 34px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .copybox {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      margin: 12px 0 16px;
+      padding: 16px;
+      border: 1px solid #cfd8d4;
+      border-radius: 8px;
+      background: #f8faf7;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 8px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--green-dark);
+      border-color: #a6d4cd;
+    }
+
+    .note {
+      padding: 16px;
+      border: 1px solid #ecdca5;
+      border-radius: 8px;
+      background: var(--yellow-soft);
+      color: #5c4a12;
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status {
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 16px; }
+      .button { width: 100%; }
+      .actions { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>SNS投稿文とnote下書き</h1>
+      <p class="lead">無料AIスターターキットを案内するための投稿文です。目的は、強く煽ることではなく「AI初心者でも安心して試せそう」と思ってもらうことです。</p>
+      <div class="meta">
+        <span>リンク先: https://lit.link/itsumusu</span>
+        <span>対象: 30〜60代のAI初心者</span>
+        <span>訴求: 無料・スマホOK・クレカ不要</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="note">
+      投稿前の確認: LINEあいさつ文が設定済みか、lit.linkのボタンがLPへつながるか、スマホでリンクが開けるかを確認してから投稿してください。
+    </section>
+
+    <section>
+      <h2>価格変化の裏付けとして使う表現</h2>
+      <div class="grid">
+        <article class="card full">
+          <h3>事実ベースの注意書き</h3>
+          <div id="price-fact" class="copybox">AI各社が「今後必ず値上げする」と公式発表しているわけではありません。
+
+ただし、主要AIサービスではこの1〜2年で、月20ドル前後の標準プランとは別に、月100〜249.99ドル級の上位プランが次々に追加されています。
+
+例:
+・OpenAI: ChatGPT Plusは2023年2月に月20ドルで開始。2024年12月にChatGPT Pro（月200ドル）を追加。
+・Anthropic: Claude Proは2023年9月に月20ドルで開始。2025年4月にClaude Max（月100ドル / 月200ドル）を追加。
+・Google: Google One AI Premiumは2024年2月に月19.99ドルで開始。2025年5月にGoogle AI Ultra（月249.99ドル）を追加。
+・Perplexity: Pro（月20ドル）に加え、2025年7月にMax（月200ドル）を追加。
+
+つまり「安いままずっと同じ条件で使える」と決めつけるより、今のうちに無料で触り方を覚えておく方が安全です。</div>
+          <div class="actions">
+            <button class="button" data-copy="price-fact">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>X向け</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>X投稿 1: 自己紹介型</h3>
+          <div id="x1" class="copybox">AIを本格的に触り始めて、まだ3週間くらいです。
+
+最初は「何から始めればいいの？」状態でした。
+
+同じようにAIが気になるけど怖い人向けに、無料のスターターキットを作りました。
+
+スマホで開いて、全文コピーして、ChatGPTやClaudeに貼るだけです。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="x1">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>X投稿 2: 不安解消型</h3>
+          <div id="x2" class="copybox">AIを使いたいけど、
+
+・何を聞けばいいか分からない
+・どこまで情報を入れていいか不安
+・SNSのAI情報が本当か分からない
+
+このあたりで止まる人は多いと思います。
+
+初心者向けに、無料のAIスターターキットを作りました。
+クレカ不要です。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="x2">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>X投稿 3: 高額情報チェック型</h3>
+          <div id="x3" class="copybox">SNSで見かけるAI情報、
+本当かどうか分からないまま信じるのは怖い。
+
+特に高額な情報商材や「これだけで稼げる」系は、一度冷静に確認した方がいいと思っています。
+
+AI情報を確認するための無料キットを作りました。
+最初はここから試してみてください。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="x3">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>X投稿 4: 家族・普通の父親型</h3>
+          <div id="x4" class="copybox">36歳、5歳息子と1歳娘を育てている普通の父親です。
+
+AIはほぼゼロ知識から触り始めました。
+
+仕事が忙しくて時間がない人でも、少しずつAIに慣れられるように、無料スターターキットを作りました。
+
+まずはスマホで1つだけ試せます。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="x4">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>X投稿 5: 価格変化の事実型</h3>
+          <div id="x5" class="copybox">AI、まだ無料や月20ドル前後で触れるものも多いです。
+
+でも主要サービスはこの1〜2年で、
+月100〜249.99ドル級の上位プランを次々に追加しています。
+
+将来の値上げを断定はできません。
+ただ「触り方を覚えるなら今」はかなり現実的だと思います。
+
+初心者向けに無料キットを作りました。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="x5">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Threads向け</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Threads投稿 1</h3>
+          <div id="threads1" class="copybox">AIを本格的に触り始めて、まだ3週間くらいです。
+
+最初はChatGPTやGeminiに課金しても、「結局どう使えばいいの？」という感じでした。
+
+そこから少しずつ、AIに何を頼めばいいか、どこまで情報を入れていいか、危ない使い方は何かを整理してきました。
+
+同じように不安な人向けに、無料のスターターキットを作りました。
+
+スマホで開いて、全文コピーして、ChatGPTやClaudeに貼るだけです。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="threads1">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Threads投稿 2</h3>
+          <div id="threads2" class="copybox">AIって便利そうだけど、
+初心者ほど見えない不安が多いと思います。
+
+何を入力していいのか。
+個人情報は大丈夫なのか。
+SNSのAI情報は本当なのか。
+自分にもアプリみたいなものが作れるのか。
+
+僕自身もまだ学び始めた側なので、初心者目線で安全に試せる無料キットを作りました。
+
+まずは「AI情報が本当か調べる」から試してみてください。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="threads2">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Threads投稿 3: 価格変化の裏付け型</h3>
+          <div id="threads3" class="copybox">AIは「そのうち高くなる」と雑に煽りたいわけではありません。
+
+ただ、事実として主要AIサービスはこの1〜2年で上位プランを増やしています。
+
+ChatGPTは月20ドルのPlusから、月200ドルのProを追加。
+Claudeは月20ドルのProに加えて、月100ドル / 月200ドルのMaxを追加。
+Googleも月19.99ドルのAI Premiumに加えて、月249.99ドルのAI Ultraを出しました。
+
+将来の値上げを断定はできない。
+でも、AIが「無料で何となく触れるもの」から「使える人ほど課金するもの」に変わってきているのは感じます。
+
+だから、まず無料で触り方を覚える入口を作りました。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="threads3">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Instagram / LINE VOOM向け</h2>
+      <div class="grid">
+        <article class="card full">
+          <h3>投稿キャプション</h3>
+          <div id="instagram1" class="copybox">AIを使ってみたいけど、何から始めればいいか分からない。
+
+僕も最初はそうでした。
+
+ChatGPTやGeminiに課金してみても、
+「結局、何を頼めばいいの？」
+「どこまで情報を入れていいの？」
+「アプリを作るなんて自分にできるの？」
+という不安がありました。
+
+だから、AI初心者向けに無料のスターターキットを作りました。
+
+スマホで開いて、
+「全文コピー」を押して、
+ChatGPTやClaudeに貼るだけで使えます。
+
+まずはSNSで見かけたAI情報が本当か確認するところから試せます。
+
+無料・クレカ不要です。
+
+受け取りはこちら
+https://lit.link/itsumusu
+
+#AI初心者 #ChatGPT初心者 #Claude #AI活用 #AI勉強中 #副業初心者 #子育てパパ #30代パパ #無料配布</div>
+          <div class="actions">
+            <button class="button" data-copy="instagram1">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>note記事下書き</h2>
+      <div class="grid">
+        <article class="card full">
+          <h3>タイトル案</h3>
+          <div id="note-title" class="copybox">AIを使いたいけど怖い人へ。ゼロ知識から作った無料スターターキットを配布します</div>
+          <div class="actions">
+            <button class="button" data-copy="note-title">コピー</button>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+
+        <article class="card full">
+          <h3>note本文</h3>
+          <div id="note-body" class="copybox">AIを使いたいけど、何から始めればいいか分からない。
+
+そう感じている人向けに、無料の「AI実用スターターキット」を作りました。
+
+僕は36歳で、5歳の息子と1歳の娘を育てている普通の父親です。
+
+妻は現役保育士で、子どもとの接し方を教わりながら、日々の迷いや気づきを少しずつ残しています。
+
+仕事が忙しく、心身を崩した経験もあります。
+
+正直、少し前までAIは「すごそうだけど、自分には遠いもの」でした。
+
+本格的に触り始めたのも、ここ最近です。
+
+最初はChatGPTとGeminiに一番低いプランで課金しました。
+
+でも、使ってみるとすぐに別の疑問が出てきました。
+
+「何を頼めばいいの？」
+
+「どこまで情報を入れていいの？」
+
+「SNSで流れてくるAI情報は本当なの？」
+
+「アプリってどうやって作るの？」
+
+そこからYouTubeを見たり、CursorやClaude Code、Codexを触ったり、自分のWindowsパソコンでAIがファイルを作ったり直したりできる環境を少しずつ試してきました。
+
+まだ専門家ではありません。
+
+むしろ、ゼロ知識から試行錯誤している途中です。
+
+だからこそ、初心者が最初につまずく場所がよく分かります。
+
+AIの世界は、すごい話が多いです。
+
+「これで稼げる」
+「自動化できる」
+「誰でもアプリが作れる」
+
+そういう言葉もよく見ます。
+
+正直、AIはいきなり大きく稼げる可能性がある道具だと思っています。
+
+ただし、稼ぐために最初から10万円以上の高額な情報商材を買う必要があるかというと、そこはまったく別の話です。
+
+僕自身も、AIを本格的に触り始めてから有料サービスに課金しました。
+
+あるAIサービスに約6万円を使ったこともあります。
+
+そのうえで今感じているのは、初心者が最初に必要なのは「高額教材」ではなく、まず自分で触って、何ができて、何が危ないのかを判断できる状態になることです。
+
+ChatGPTやClaudeの有料プラン、必要なら画像生成のAPIを少額で試すくらいでも、しばらくは十分に戦えると思っています。
+
+もちろん、もっと高度なことをやるなら追加の課金が必要になる場面はあります。
+
+でも、最初から10万円以上の情報商材を買う前に、
+
+「その情報は今の自分に本当に必要なのか」
+
+を確認した方がいい。
+
+このキットは、その判断をするための入口として作っています。
+
+もう1つ、早めに触っておいた方がいいと思う理由があります。
+
+それは、AIサービスの価格や利用条件がどんどん変わっていることです。
+
+各社が「将来必ず値上げする」と公式発表しているわけではありません。
+
+でも、主要AIサービスではこの1〜2年で、月20ドル前後の標準プランとは別に、月100ドル〜249.99ドル級の上位プランが次々に追加されています。
+
+OpenAIは、2023年2月にChatGPT Plusを月20ドルで開始し、2024年12月に月200ドルのChatGPT Proを追加しました。
+
+Anthropicは、2023年9月にClaude Proを月20ドルで開始し、2025年4月に月100ドル / 月200ドルのClaude Maxを追加しました。
+
+Googleも、2024年2月にGoogle One AI Premiumを月19.99ドルで開始し、2025年5月に月249.99ドルのGoogle AI Ultraを追加しています。
+
+Perplexityも、月20ドルのProに加えて、2025年7月に月200ドルのMaxを追加しました。
+
+つまり、AIは「ずっと無料で、同じ条件で使えるもの」と考えるより、必要な人ほど上位プランや利用制限と向き合うものになってきています。
+
+だからこそ、高額な教材や講座に申し込む前に、まず無料で触り方を覚えておく。
+
+その入口として、このキットを使ってもらえたら嬉しいです。
+
+今回作った無料キットでは、次のようなことができます。
+
+・SNSで見たAI情報が本当か確認する
+・ChatGPTやClaudeへの頼み方を整理する
+・危ない自動化や個人情報入力を避ける
+・noteやSNS投稿の下書きを作る
+・画像生成の指示文を考える
+・小さなLPや無料配布ページを検証する
+
+使い方は簡単です。
+
+1. 無料キットのページを開く
+2. やりたいことを選ぶ
+3. 「全文コピー」を押す
+4. ChatGPTやClaudeに貼る
+5. 自分の相談内容を足して送る
+
+まずおすすめなのは、「AI情報が本当か調べる」ツールです。
+
+高額な情報商材や、SNSで見かけたAIノウハウをそのまま信じる前に、冷静に確認するために使えます。
+
+このキットは、AIで必ず稼げると約束するものではありません。
+
+また、難しい設定やクレジットカード登録を前提にするものでもありません。
+
+忙しい人でも、スマホから少しずつAIに慣れて、自分や家族、身近な人の困りごとを助ける小さなツールを作れるようになる。
+
+その入口として作っています。
+
+今後も、初心者向けに使いやすいと思ったものを少しずつ増やしていく予定です。
+
+AIを完全に使いこなす必要はありません。
+
+まずは、1つだけ試してみる。
+
+そこからで十分だと思っています。
+
+無料キットはこちらから受け取れます。
+
+https://lit.link/itsumusu</div>
+          <div class="actions">
+            <button class="button" data-copy="note-body">コピー</button>
+            <a class="button secondary" href="https://lit.link/itsumusu">配布ページを開く</a>
+            <span class="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>参照した主な情報</h2>
+      <div class="card full">
+        <div class="copybox">OpenAI公式: ChatGPT Plusは2023年2月に月20ドルで開始。ChatGPT Proは2024年12月に月200ドルで追加。
+Anthropic公式/Help: Claudeの現行プランはPro月20ドル、Max 5x月100ドル、Max 20x月200ドル。Claude Proの開始は2023年9月の報道で確認。
+Google公式: Google AI Ultraは2025年5月に月249.99ドルで発表。Google One AI Premiumは2024年2月に月19.99ドルで開始。
+Perplexity: TechCrunch報道で、2025年7月に月200ドルのMaxプラン追加を確認。
+
+注意: 公式に「将来必ず値上げする」と確認できたわけではありません。文章では、値上げ断定ではなく「上位プラン追加」「利用条件が変わっている」という表現に留めます。</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    async function copyText(id, button) {
+      const box = document.getElementById(id);
+      const status = button.parentElement.querySelector(".status");
+      const text = box.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = "コピーしました";
+      } catch (error) {
+        const range = document.createRange();
+        range.selectNodeContents(box);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = "選択しました。Ctrl+Cでコピーしてください";
+      }
+      window.setTimeout(() => {
+        status.textContent = "";
+      }, 2400);
+    }
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", () => copyText(button.dataset.copy, button));
+    });
+  </script>
+</body>
+</html>
